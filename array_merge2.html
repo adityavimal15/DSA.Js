@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=[3,7,12,34,56,90];
+        let data1=[4,9,25,45];
+        let data2=[];
+        let d1=0;
+        let d2=0;
+        let d3=0;
+        while(d1<data.length && d2<data1.length){
+          if(data[d1]<data1[d2]){
+            data2[d3]=data[d1];
+            d1++;
+          }else{
+            data2[d3]=data1[d2];
+            d2++;
+          }
+          d3++;
+        }
+        while(d1<data.length){
+            data2[d3]=data[d1];
+            d1++;
+            d3++;
+        }
+        console.warn(data2);
+    </script>
+</head>
+<body>
+</body>
+</html>
