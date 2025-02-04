@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SortEl(){
+        let data1=document.getElementById("array_list").value;
+        let data = data1.split(",").map(Number); 
+        for(i=0;i<data.length;i++){
+            for(j=0;j<data.length;j++){
+              if(data[j]>data[j+1]){
+                let temp=data[j];
+                data[j]=data[j+1];
+                data[j+1]=temp;
+              }  
+            }
+        }
+        document.getElementById("result").innerText = "Sorted Data: " + data.join(", ");
+    }
+        console.warn(data);
+    </script>
+</head>
+<body> 
+    <label for="userInput">Enter numbers (comma-separated):</label>
+    <input type="text" id="array_list" placeholder="Enter array elements" />
+    <button onclick="SortEl()">SORT</button>
+    <h3 id="result"></h3>
+</body>
+</html>
