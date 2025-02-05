@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function ApplePriceCalculator(){
+         let money=document.getElementById('TotalRupees').value;
+         let totalApple=0;
+         function buyApple(x){
+         if(x>0){
+          console.warn("I have ",x," Rs",totalApple)
+          buyMore(x);
+         }else{
+          console.warn("I don't have more money",totalApple);
+         }
+      }
+      function buyMore(x){
+          totalApple++;
+          let perPrice=document.getElementById('RsPerApple').value;
+          buyApple(x-perPrice);
+      }
+      buyApple(money);
+      document.getElementById("result").innerText="Total apple you can bye at " + money + " is " + totalApple;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="number" id="TotalRupees" placeholder="Total Rupees" />
+    <input type="number" id="RsPerApple" placeholder="Price of 1 apple" />
+    <button onclick="ApplePriceCalculator()">Calculate</button>
+    <h3 id="result"></h3>
+  </body>
+</html>
