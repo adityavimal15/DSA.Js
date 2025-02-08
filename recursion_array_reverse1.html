@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function reverse() {
+        let data1 = document.getElementById("array_list").value;
+        let data = data1.split(",").map(Number); 
+        customreverse(data, 0, data.length - 1);
+        document.getElementById("result").innerText =
+          "Reversed Array: " + data.join(", ");
+      }
+      function customreverse(data, start, end) {
+        let temp;
+        console.warn(data);
+        if (start <= end) {
+          temp = data[start];
+          data[start] = data[end];
+          data[end] = temp;
+          customreverse(data, start + 1, end - 1);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <label for="userInput">Enter numbers (comma-separated):</label>
+    <input type="text" id="array_list" placeholder="Enter array elements" />
+    <button onclick="reverse()">Reverse</button>
+    <h3 id="result"></h3>
+  </body>
+</html>

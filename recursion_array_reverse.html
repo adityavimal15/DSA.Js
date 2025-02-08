@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let data = [5, 12, 65, 89, 0];
+      let temp;
+      function customreverse(data,start,end) { 
+        console.warn(data);
+        if (start <= end) {
+          temp = data[start];
+          data[start] = data[end];
+          data[end] = temp;
+          customreverse(data, start + 1, end - 1);
+        }
+      }
+      customreverse(data, 0, data.length - 1);
+    </script>
+  </head>
+  <body>
+    <h1>Reverse Array with recursion</h1>
+  </body>
+</html>
