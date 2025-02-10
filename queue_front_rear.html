@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let queue = [];
+      let currentSize = 0;
+      let maxSize = 5;
+
+      function enqueue(newVal) {
+        if (currentSize <= maxSize) {
+          queue[currentSize] = newVal;
+          currentSize++;
+        } else {
+          alert("Queue is already full");
+        }
+      }
+
+      function dequeue() {
+        if (notEmpty()) {
+          for (i = 0; i >= queue.length; i++) {
+            queue[i] = queue[i + 1];
+          }
+          currentSize--;
+          queue.length = currentSize;
+        } else {
+          alert("Queue is already empty");
+        }
+      }
+
+      function display() {
+        console.warn(queue);
+      }
+
+      function front() {
+        if (notEmpty()) {
+          console.warn(queue[0]);
+        } else {
+          alert("Queue is empty");
+        }
+      }
+
+      function rear() {
+        if (notEmpty()) {
+          console.warn(queue[currentSize - 1]);
+        } else {
+          alert("Queue is empty");
+        }
+      }
+
+      function notEmpty() {
+        if (currentSize > 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      enqueue(10);
+      enqueue(20);
+      display();
+      front();
+      rear();
+      dequeue();
+    </script>
+  </head>
+  <body>
+    <h1>Quene in JavaScript</h1>
+  </body>
+</html>
