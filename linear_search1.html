@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function searcher() {
+        let data = [2, 45, 65, 78, 98, 4, 34, 23];
+        let find = document.getElementById("val").value;
+        let pos = undefined;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i] == find) {
+            pos = i;
+            document.getElementById("val").value="";
+            break;
+          }
+        }
+        console.warn(pos);
+        if (!pos) {
+          alert("Element not found");
+        }else{
+            alert("Element position is "+ pos)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Linear search in JavaScript</h1>
+    <input type="number" placeholder="Enter Value for search" id="val" />
+    <button onclick="searcher()">Search</button>
+  </body>
+</html>
