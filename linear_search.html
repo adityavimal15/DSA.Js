@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let data = [2, 45, 65, 78, 98, 4, 34,23];
+      let find = 45;
+      let pos = undefined;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i] == find) {
+          pos = i;
+          break;
+        }
+      }
+      console.warn(pos);
+      if(!pos){
+        alert("Element not found");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Linear search in JavaScript</h1>
+  </body>
+</html>
