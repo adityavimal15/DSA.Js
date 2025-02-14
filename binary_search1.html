@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let data = [64, 54, 85, 98, 45, 34, 3];
+      let find = 64;
+      let start = 0;
+      let end = data.length - 1;
+      let position = undefined;
+
+    //   while (end<=0) {
+    //     if (data[start] > data[start + 1]) {
+    //       let temp = data[start];
+    //       data[start] = data[start + 1];
+    //       data[start + 1] = temp;
+    //       start++;
+    //     }else{
+    //         start=start+1;
+    //     }
+    //   }
+    for(i=0;i<data.length;i++){
+            for(j=0;j<data.length;j++){
+              if(data[j]>data[j+1]){
+                let temp=data[j];
+                data[j]=data[j+1];
+                data[j+1]=temp;
+              }  
+            }
+        }
+
+
+      while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        // console.warn(mid);
+        // break;
+        if (data[mid] === find) {
+          position = mid;
+          console.log(position);
+          break;
+        } else if (data[mid] < find) {
+          start = mid + 1;
+        } else {
+          end = mid - 1;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Binary Search by Iterative Property</h1>
+  </body>
+</html>
