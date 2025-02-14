@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let item = [45, 23, 3, 4, 25, 89, 98];
+      function InsertionSort(data) {
+        let current,i,j;
+        for (i = 1; i < data.length; i++) {
+          current = data[i];
+          for (j = i - 1; j >= 0 && data[j]>current; j--) {
+              data[j + 1] = data[j];
+          }
+          data[j+1] = current;
+        }
+      }
+      InsertionSort(item);
+      console.warn(item);
+    </script>
+  </head>
+  <body>
+    <h1>Insertion Sort by JavaScript</h1>
+  </body>
+</html>
