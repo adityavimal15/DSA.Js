@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sort Except Two Elements</title>
+    <script>
+      let item = [45, 64, 32, 7, 8, 23, 98, 89];
+      let fixed1 = 32;
+      let fixed2 = 7;
+
+      function sortExceptTwo(data, fixed1, fixed2) {
+        // Identify indices of the fixed elements
+        let idx1 = data.indexOf(fixed1);
+        let idx2 = data.indexOf(fixed2);
+
+        // Extract elements that need sorting
+        let temp = data.filter(num => num !== fixed1 && num !== fixed2);
+
+        // Apply Insertion Sort
+        insertionSort(temp);
+
+        // Merge sorted elements back, excluding fixed elements
+        let sortedArray = [...temp, fixed1, fixed2];
+
+        // Update the original array
+        for (let i = 0; i < sortedArray.length; i++) {
+          data[i] = sortedArray[i];
+        }
+      }
+
+      function insertionSort(data) {
+        for (let i = 1; i < data.length; i++) {
+          let key = data[i];
+          let j = i - 1;
+          while (j >= 0 && data[j] > key) {
+            data[j + 1] = data[j];
+            j--;
+          }
+          data[j + 1] = key;
+        }
+      }
+
+      sortExceptTwo(item, fixed1, fixed2);
+      console.log("Sorted Array (except fixed elements at the end):", item);
+    </script>
+  </head>
+  <body>
+    <h1>Insertion Sort in JavaScript</h1>
+  </body>
+</html>
