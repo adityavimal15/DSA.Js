@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=[12,3,45,2,56,45,84,77,4,3,2,76,55,33,21];
+        let evenArray=[];
+        let count=0;
+        for(let i=0;i<data.length;i++){
+            if(data[i]%2==0){
+                evenArray.push(data[i]*2);
+                count++;
+            }
+        }
+        console.warn(count);
+        console.warn(evenArray);
+    </script>
+</head>
+<body>
+    <h1>Find out even value from array, double the value of that element and count the number of element in array manually.</h1>
+</body>
+</html>
