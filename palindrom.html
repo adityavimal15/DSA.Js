@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Palindrom(str){
+            let data=str.split("");
+            // console.warn(data);
+            let i=0;
+            let end=data.length-1;
+            let result=true;
+            while(end>i){
+               if(data[i]!=data[end]){
+                result=false;
+               }
+               i++;
+               end--;
+            }
+            return result;
+        }
+        console.warn(Palindrom("abab"));
+    </script>
+</head>
+<body>
+    <h1>Palindrom of string</h1>
+</body>
+</html>
