@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data={
+            name:'Aditya',
+            age:'23',
+            mail:'aditayavimal15@gmail.com',
+            getname:function(){
+                return this.name;
+            }
+        }
+        
+        data.contact=6280497487;
+        console.warn(data);
+        console.warn(data.getname());
+        console.warn(Object.values(data));
+        console.warn(Object.entries(data));
+        console.warn(Object.keys(data));
+
+        for(x in data){
+            console.warn(x);
+        }
+
+        for(x in data){
+            console.warn(data[x]);
+        }
+
+        delete(data.name);
+        console.warn(data);
+    </script>
+</head>
+<body>
+    <h1>Object in JavaScript</h1>
+</body>
+</html>
