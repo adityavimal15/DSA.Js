@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=new Map([
+            ['name','Aditya'],
+            [true,'Age 23'],
+            [62804,'97487']
+        ]);
+        console.warn(data);
+
+        console.warn(data.size);
+
+        console.warn(data.has(true));
+
+        console.warn(data.get(true));
+
+        for(x of data){
+            console.warn(x);
+            console.warn(x[0]);
+            console.warn(x[1]);
+        }
+
+        data.forEach((val,key)=>{
+            console.warn(val);
+            console.warn(key);
+        })
+
+        data.set('aditayavimal','15@gmail.com')
+        console.warn(data);
+
+        data.clear();
+        console.warn(data);
+    </script>
+</head>
+<body>
+    <h1>Map in JavaScript</h1>
+</body>
+</html>
