@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class List{
+            constructor (data){
+               this.head ={
+                 value:data,
+                 next:null
+               }
+               this.tail=this.head;
+               this.size=1;
+            }
+
+            apppendNode(newData){
+                let newNode={
+                    value:newData,
+                    next:null
+                }
+                this.tail.next=newNode;
+                this.tail=newNode;
+                this.size+=1;
+            }
+
+            traversing(){
+                let counter=0;
+                let currentNode=this.head;
+                while(counter<this.size){
+                    console.warn(currentNode);
+                    currentNode=currentNode.next;
+                    counter++;
+                }
+            }
+        }
+
+
+        let list=new List(200);
+        // console.warn(list);
+
+        list.apppendNode(300);
+        // console.warn(list);
+
+        list.apppendNode(400);
+        list.apppendNode(500);
+        list.apppendNode(600);
+        list.apppendNode(700);
+        list.apppendNode(800);
+        // console.warn(list);
+
+        list.traversing();
+    </script>
+</head>
+<body>
+    <h1>Linked List in JavaScript</h1>
+</body>
+</html>
