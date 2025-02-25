@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function createNode(value, next = null) {
+        return { value, next };
+      }
+
+      function createLinkedList() {
+        let head = null;
+
+        return {
+          insertAtEnd(value) {
+            const newNode = createNode(value);
+            if (!head) {
+              head = newNode;
+            } else {
+              let current = head;
+              while (current.next) {
+                current = current.next;
+              }
+              current.next = newNode;
+            }
+          },
+
+          insertAtBeginning(value) {
+            const newNode = createNode(value, head);
+            head = newNode;
+          },
+
+          deleteValue(value) {
+            if (!head) return;
+            if (head.value === value) {
+              head = head.next;
+              return;
+            }
+            let current = head;
+            while (current.next && current.next.value !== value) {
+              current = current.next;
+            }
+            if (current.next) {
+              current.next = current.next.next;
+            }
+          },
+
+          printList() {
+            let current = head;
+            let output = "";
+            while (current) {
+              output += current.value + " -> ";
+              current = current.next;
+            }
+            console.log(output + "null");
+          },
+        };
+      }
+
+      // Example Usage
+      const myList = createLinkedList();
+      myList.insertAtEnd(1);
+      myList.insertAtEnd(2);
+      myList.insertAtEnd(3);
+      myList.insertAtBeginning(0);
+      myList.printList(); // Output: 0 -> 1 -> 2 -> 3 -> null
+
+      myList.deleteValue(2);
+      myList.printList(); // Output: 0 -> 1 -> 3 -> null
+    </script>
+  </head>
+  <body>
+    <h1>Linked List in JavaScript</h1>
+  </body>
+</html>
