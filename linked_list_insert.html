@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class List{
+            constructor(data){
+               this.head ={
+                value:data,
+                next:null
+               }
+               this.tail=this.head;
+               this.size=1;
+            }
+
+            appendNode(newData){
+            let newNode={
+                value:newData,
+                next:null
+            }
+            this.tail.next=newNode;
+            this.tail=newNode;
+            this.size+=1;
+            }
+
+            insertNode(index,val){
+                let counter=1;
+                let currentNode=this.head;
+                while(counter>index){
+                   counter++;
+                   currentNode=currentNode.next;
+                }
+                let nextNode=currentNode.next;
+                currentNode.next ={
+                    value:val,
+                    next:nextNode
+                }
+            }
+        }
+
+        let list=new List(200);
+        // console.warn(list);
+
+        list.appendNode(300);
+        // console.warn(list);
+
+        list.appendNode(400);
+        list.appendNode(500);
+        list.appendNode(600);
+        list.appendNode(700);
+        list.appendNode(800);
+        list.insertNode(2,4000);
+        console.warn(list);
+    </script>
+</head>
+<body>
+    <h1>Linked List in JavaScript</h1>
+</body>
+</html>
