@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Node {
+        constructor(val) {
+          this.value = val;
+          this.left = null;
+          this.right = null;
+        }
+      }
+
+      class BSTree {
+        constructor() {
+          this.root = null;
+        }
+        isTreeEmpty() {
+          return this.root === null;
+        }
+        makeTree(value) {
+          let newNode = new Node(value);
+          if (this.root === null) {
+            this.root = newNode;
+          } else {
+            this.insertNode(this.root, newNode);
+          }
+        }
+        insertNode(root, newNode) {
+          if (root.value > newNode.value) {
+            if (root.left === null) {
+              root.left = newNode;
+            } else {
+              this.insertNode(root.left, newNode);
+            }
+          } else {
+            if (root.right === null) {
+              root.right = newNode;
+            } else {
+              this.insertNode(root.right, newNode);
+            }
+          }
+        }
+        search(root, val) {
+          if (root === null) {
+            return false;
+          } else if (root.value === val) {
+            return true;
+          } else if (root.value > val) {
+            return this.search(root.left, val);
+          } else {
+            return this.search(root.right, val);
+          }
+        }
+        // preOrder(root) {
+        //   if (root) {
+        //     console.warn(root.value);
+        //     this.preOrder(root.left);
+        //     this.preOrder(root.right);
+        //   }
+        // }
+        // inOrder(root) {
+        //   if (root) {
+        //     this.inOrder(root.left);
+        //     console.warn(root.value);
+        //     this.inOrder(root.right);
+        //   }
+        // }
+        // postOrder(root) {
+        //   if (root) {
+        //     this.postOrder(root.left);
+        //     this.postOrder(root.right);
+        //     console.warn(root.value);
+        //   }
+        // }
+
+        minimumVal(root){
+            if(!root.left){
+                return root.value;
+            }else{
+                return this.minimumVal(root.left);
+            }
+        }
+        maximumVal(root){
+            if(!root.right){
+                return root.value;
+            }else{
+                return this.maximumVal(root.right);
+            }
+        }
+      }
+
+      let BST = new BSTree();
+      BST.makeTree(20);
+      BST.makeTree(10);
+      BST.makeTree(30);
+      BST.makeTree(5);
+      BST.makeTree(12);
+      BST.makeTree(21);
+      BST.makeTree(25);
+
+      //   console.warn(BST.search(BST.root,30));
+    //   console.warn("PostOrder of taken tree");
+    //   BST.postOrder(BST.root);
+    //   console.warn("PreOrder of taken tree");
+    //   BST.preOrder(BST.root);
+    //   console.warn("InOrder of taken tree");
+    //   BST.inOrder(BST.root);
+    // console.warn("Breadth First Search");
+    // BST.bfsTraversing();
+
+      //   console.warn(BST);
+      console.warn("Maximum Value in tree :");
+      console.warn(BST.maximumVal(BST.root));
+      console.warn("Mininmum Value in tree :");
+      console.warn(BST.minimumVal(BST.root));
+    </script>
+  </head>
+  <body>
+    <h1>Binary Search Tree in JavaScript</h1>
+  </body>
+</html>
